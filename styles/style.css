@@ -14,13 +14,9 @@
   display: grid;
   position: relative;
   margin-inline-start: clamp(0px, 19.542px + -2.5445vw, 10px);
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, min-content);
+  grid-template-columns: 1fr min-content 1fr;
   inline-size: calc(100% - 20px);
-  min-block-size: clamp(668px, 212.3686px + 121.5017vw, 1024px);
-  block-size: 100vh;
-  height: 100%;
-
+  padding-block: 20px; 
 }
 
 .header__rec-decoration {
@@ -40,7 +36,7 @@
   text-align: center;
 }
 
-.header__rec-decoration-text:after {
+.header__rec-decoration-text::after {
   content: "";
   display: inline-block;
   background-color: var(--header-color);
@@ -125,6 +121,7 @@
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   line-height: 83%;
   letter-spacing: 0%;
+  text-align: left;
 }
 
 .header__title {
@@ -187,11 +184,11 @@
   line-height: 23.4px;
   letter-spacing: 0%;
   color: var(--topic-title-color);
-  justify-self: center;
+  justify-self: start;
 }
 
 .content__text-content-topic-subtitle {
-  justify-self: center;
+  justify-self: start;
   inline-size: 100%;
   margin-block-start: 20px;
 }
@@ -213,7 +210,7 @@
   font-size: 18px;
   line-height: 23.4px;
   letter-spacing: 0%;
-  text-shadow: 1px 2px 0 var(--link-shadow-color);
+  text-shadow: 2px 2px 0 var(--link-shadow-color);
   text-decoration: none;
 }
 
@@ -222,7 +219,8 @@
 }
 
 .content__text-content-topic-paragraph-link:focus {
-  outline: 1px solid var(--link-decoration-color);
+  outline: none;
+  border: 1px solid var(--link-decoration-color);
 }
 
 .opening-topic {
@@ -241,6 +239,7 @@
   font-weight: 400;
   inline-size: 100%;
   margin-block-start: 20px;
+  justify-self: start;
 }
 
 .pictures {
@@ -263,7 +262,7 @@
   margin-inline-start: 10px;
   grid-template-columns: 1fr;
   inline-size: calc(100% - 20px);
-  min-block-size: clamp(668px, 212.3686px + 121.5017vw, 1024px);
+  min-block-size: 668px;
   block-size: 100vh;
 }
 
@@ -285,7 +284,7 @@
   }
 
   .header {
-    min-block-size: clamp(768px, 1792px + -100vw, 1024px);
+    min-block-size: 768px;
   }
 
   .main-title {
@@ -298,7 +297,7 @@
   }
 
   .opening-title {
-    margin-block-start: 20px;
+    margin-block-start: 25px;
   }
 
   .header__epigraph {
@@ -316,17 +315,17 @@
     display: grid;
     grid-template-columns: clamp(236px, -1px + 30.8594vw, 315px) 1fr;
     gap: 20px;
-    margin-block-start: 35px;
+    margin-block-start: 30px;
   }
 
   .content__text-content-topic-secondary {
-    margin-block-end: 15px;
+    margin-block-end: 28px;
   }
 
   .content__text-content-topic-secondary .content__text-content-topic-title {
-    justify-self: flex-start;
+    justify-self: start;
     inline-size: clamp(236px, -1px + 30.8594vw, 315px);
-    padding-block-start: 50px;
+    padding-block-start: 56px;
   }
   
 
@@ -336,7 +335,7 @@
       clamp(230px, -25px + 33.2031vw, 315px)
       clamp(229px, -26px + 33.2031vw, 314px);
     gap: 20px;
-    padding-block-start: 48px;
+    padding-block-start: 66px;
   }
 
   .pictures .content__text-content-topic-subtitle:first-of-type {
@@ -378,15 +377,16 @@
   .footer {
     margin-block-start: 60px;
     margin-inline-start: 0;
-    min-block-size: clamp(768px, 1792px + -100vw, 1024px);
+    min-block-size: 768px;
   }
 
   .footer__title {
+    text-align: center;
     margin-inline-start: 15px;
   }
 }
 
-/* Перенос меню наверх после 768px*/
+
 @media (width >= 769px) {
   .header__theme-menu-list {
     flex-direction: row;
@@ -397,7 +397,7 @@
     inline-size: 230px;
     justify-self: center;
     align-self: flex-start;
-    margin-block-start: 20px;
+    margin-block-start: 0px;
     margin-inline-start: 20px;
   }
 }
@@ -419,13 +419,13 @@
   }
 
   .header__title {
-    padding-block-start: 275px;
+    padding-block-start: 161px;
   }
 
   .header__epigraph {
     inline-size: 491px;
     margin-inline-start: 514px;
-    margin-block-start: 112px;
+    margin-block-start: 0px;
   }
 
   .content__text-content-topic-secondary .content__text-content-topic-title {
@@ -438,6 +438,10 @@
     gap: 20px;
   }
 
+  .content__text-content-topic-texts {
+      padding-top: 2px;
+ }
+
   .content__text-content-topic-primary {
     grid-template-columns: 315px 1fr;
   }
@@ -445,7 +449,7 @@
   .pictures {
     grid-template-columns: 315px 315px 314px;
     gap: 20px;
-    padding-block-start: 48px;
+    padding-block-start: 60px;
   }
 
   .footer {
@@ -456,6 +460,7 @@
   }
 
   .footer__title {
+    text-align: center;
     margin-inline-start: 40px;
   }
 }
