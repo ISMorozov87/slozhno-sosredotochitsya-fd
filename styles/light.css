@@ -27,10 +27,6 @@
   display: none;
 }
 
-.theme-light .header__rec-decoration-circle:after {
-  display: none;
-}
-
 @media (prefers-color-scheme: light) {
   :root.theme-auto {
     --page-bg-color: #fff1f7;
