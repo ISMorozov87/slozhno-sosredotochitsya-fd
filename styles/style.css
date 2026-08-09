@@ -14,12 +14,12 @@
   display: grid;
   position: relative;
   margin-inline-start: clamp(0px, 19.542px + -2.5445vw, 10px);
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, min-content);
+  grid-template-rows: 1fr min-content 1fr; 
   inline-size: calc(100% - 20px);
   min-block-size: clamp(668px, 212.3686px + 121.5017vw, 1024px);
   block-size: 100vh;
   height: 100%;
+  min-block-size: 668px;
 }
 
 .header__rec-decoration {
@@ -129,8 +129,9 @@
 .header__title {
   grid-area: 2 / 1;
   text-shadow: 4px 4px 0 var(--main-title-shadow-color);
-  align-self: start;
-  padding-block-start: clamp(67px, -36.0534px + 27.4809vw, 175px);
+  padding-block-start: 0;
+  align-self: center;
+  justify-self: start;
 }
 
 .highlighted-block {
@@ -148,7 +149,9 @@
   grid-area: 3 / 1;
   align-self: start;
   margin-block-start: clamp(54px, -47.145px + 26.972vw, 160px);
+
   inline-size: clamp(355px, 346.4122px + 2.2901vw, 364px);
+
   margin-inline-start: clamp(0px, -365.458px + 97.4555vw, 383px);
 }
 
@@ -219,7 +222,11 @@
 }
 
 .content__text-content-topic-paragraph-link:focus {
-  outline: 1px solid var(--link-decoration-color);
+  outline: none;
+}
+
+.content__text-content-topic-paragraph-link:focus-visible {
+  border-bottom: 1px solid var(--link-decoration-color);
 }
 
 .opening-topic {
@@ -291,8 +298,8 @@
   }
 
   .header__title {
-    align-self: flex-start;
-    padding-block-start: clamp(175px, -125px + 39.0625vw, 275px);
+    align-self: center;
+    padding-block-start: 0;
   }
 
   .opening-title {
@@ -328,6 +335,7 @@
     padding-block-start: 50px;
   }
   
+
   .pictures {
     grid-template-columns:
       clamp(229px, -29px + 33.5938vw, 315px)
@@ -386,6 +394,7 @@
   }
 }
 
+/* Перенос меню наверх после 768px*/
 @media (width >= 769px) {
   .header__theme-menu-list {
     flex-direction: row;
@@ -418,7 +427,8 @@
   }
 
   .header__title {
-    padding-block-start: 275px;
+    padding-block-start: 0;
+    justify-self: start;
   }
 
   .header__epigraph {
@@ -451,10 +461,10 @@
     grid-template-columns: calc(1024px - 40px);
     margin-block-start: 60px;
     min-block-size: 768px;
-    height: 100%;
   }
 
   .footer__title {
     margin-inline-start: 40px;
   }
 }
+
