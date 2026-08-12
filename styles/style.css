@@ -161,6 +161,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-flow: row;
+  margin-block-end: 11px;
 }
 
 .content__text-content-topic-primary {
@@ -275,6 +276,42 @@
   justify-self: center;
 }
 
+@media (width >= 375px) {
+  .page {
+    margin-inline: auto;
+  }
+
+  .header__theme-menu {
+    justify-self: end;     
+    inline-size: auto;
+    margin-block-start: clamp(75px, 4vw, 32px); 
+  }
+
+  .header {
+    block-size: 100vh;
+    inline-size: calc(100% - 20px);
+  }
+
+  .content {
+    margin-left: 10px;
+  }
+
+  .content__text-content-topic-secondary {
+    padding-block: 8px;
+  }
+
+  .pictures {
+    grid-template-columns: 1fr;
+    padding-block-start: 20px;
+  }
+
+  .footer {
+    margin-block-start: clamp(40px, 17vw, 39px);
+    block-size: 100vh;     /* полная высота экрана */
+  }
+
+}
+
 @media (width >= 768px) {
   .page {
     max-inline-size: clamp(768px, 0px + 100vw, 1024px);
@@ -322,13 +359,14 @@
   }
 
   .content__text-content-topic-secondary {
-    margin-block-end: 15px;
+    margin-block-end: 23px;
+    padding-block: 0px;
   }
 
   .content__text-content-topic-secondary .content__text-content-topic-title {
     justify-self: flex-start;
     inline-size: clamp(236px, -1px + 30.8594vw, 315px);
-    padding-block-start: 50px;
+    padding-block-start: 61px;
   }
   
   .pictures {
@@ -389,36 +427,6 @@
   }
 }
 
-@media (width >= 375px) {
-  .page {
-    margin-inline: auto;
-  }
-
-  .header__theme-menu {
-    justify-self: end;     
-    inline-size: auto;
-    margin-block-start: clamp(75px, 4vw, 32px); 
-  }
-
-  .header {
-    block-size: 100vh;
-    inline-size: calc(100% - 20px);
-  }
-
-  .content {
-    margin-left: 10px;
-  }
-
-  .pictures {
-    grid-template-columns: 1fr;
-    padding-block-start: 20px;
-  }
-
-  .footer {
-    margin-block-start: clamp(40px, 17vw, 39px);
-  }
-
-}
 
 @media (width >= 769px) {
   .header__theme-menu-list {
@@ -461,18 +469,23 @@
     margin-block-start: 112px;
   }
 
-  .content__text-content-topic-secondary .content__text-content-topic-title {
-    inline-size: 315px;
+  .content {
+    margin-left: 21px;
   }
 
-  .content__text-content-topic-secondary .content__text-content-topic-texts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
+   .content__text-content-topic-secondary .content__text-content-topic-title { 
+    inline-size: 315px; 
+  } 
+ 
+  .content__text-content-topic-secondary .content__text-content-topic-texts { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 20px; 
+  } 
 
   .content__text-content-topic-primary {
     grid-template-columns: 315px 1fr;
+    margin-inline-start: 0px;
   }
 
   .pictures {
@@ -485,7 +498,7 @@
     grid-template-columns: calc(1024px - 40px);
     margin-block-start: 60px;
     min-block-size: 768px;
-    height: 100%;
+    block-size: 100vh;     /* полная высота экрана */
   }
 
   .footer__title {
