@@ -13,12 +13,12 @@
 .header {
   display: grid;
   position: relative;
-  margin-inline-start: clamp(0px, 19.542px + -2.5445vw, 10px);
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, min-content);
+  grid-template-rows: 1fr min-content 1fr;
   inline-size: calc(100% - 20px);
   min-block-size: 668px; /* минимальная высота по макету */
   block-size: 100vh;     /* полная высота экрана */
+  padding: 20px 0;
 }
 
 .header__rec-decoration {
@@ -52,8 +52,8 @@
 
 .header__theme-menu {
   grid-area: 1 / 1;
-  margin-block-start: clamp(75px, -76.0239px + 40.273vw, 193px);
   justify-self: end;
+  margin-block-start: 0;
 }
 
 .decorated-zone::before {
@@ -100,6 +100,7 @@
   inline-size: 70px;
   block-size: 25px;
   padding-bottom: 5px;
+  margin: 0;
 }
 
 .header__theme-menu-button:hover {
@@ -129,7 +130,7 @@
   grid-area: 2 / 1;
   text-shadow: 4px 4px 0 var(--main-title-shadow-color);
   align-self: start;
-  padding-block-start: clamp(67px, -36.0534px + 27.4809vw, 175px);
+  margin: 0;
 }
 
 .highlighted-block {
@@ -145,10 +146,9 @@
 
 .header__epigraph {
   grid-area: 3 / 1;
-  align-self: start;
-  margin-block-start: clamp(54px, -47.145px + 26.972vw, 160px);
-  inline-size: clamp(355px, 346.4122px + 2.2901vw, 364px);
-  margin-inline-start: clamp(0px, -365.458px + 97.4555vw, 383px);
+  justify-self: end;
+  align-self: center;  /* Добавил центрирование */
+  margin: 0;
 }
 
 .content {
@@ -276,15 +276,20 @@
   justify-self: center;
 }
 
+@media (max-width: 374px) {
+  .header__theme-menu {
+    align-self: center;
+  }
+}
+
 @media (width >= 375px) {
   .page {
     margin-inline: auto;
   }
 
   .header__theme-menu {
-    justify-self: end;     
-    inline-size: auto;
-    margin-block-start: clamp(75px, 4vw, 32px); 
+    align-self: center;
+    margin-bottom: 9px;
   }
 
   .header {
@@ -293,7 +298,7 @@
   }
 
   .content {
-    margin-left: 10px;
+    margin-left: 0;
   }
 
   .content__text-content-topic-secondary {
@@ -306,7 +311,7 @@
   }
 
   .footer {
-    margin-block-start: clamp(40px, 17vw, 39px);
+    margin-left: 0;
     block-size: 100vh;     /* полная высота экрана */
   }
 
@@ -318,8 +323,9 @@
   }
 
   .header__theme-menu {
-    margin-block-start: 195px;
-    margin-right: 2px;
+    margin-block-start: 0; /* обнулил верхний отступ */
+    align-self: center;
+    margin-top: 5px;
   }
 
   .header {
@@ -331,8 +337,8 @@
   }
 
   .header__title {
-    align-self: flex-start;
-    padding-block-start: clamp(175px, -125px + 39.0625vw, 275px);
+    align-self: center;
+    justify-self: start;
   }
 
   .opening-title {
@@ -340,9 +346,8 @@
   }
 
   .header__epigraph {
-    inline-size: clamp(364px, -17px + 49.6094vw, 491px);
-    margin-inline-start: clamp(383px, -10px + 51.1719vw, 514px);
-    margin-block-start: clamp(112px, 304px + -18.75vw, 160px);
+  inline-size: clamp(364px, -17px + 49.6094vw, 491px);
+  align-self: center; /* Центрируем по вертикали и горизонтали внутри ячейки */
   }
 
   .content {
@@ -427,7 +432,6 @@
   }
 }
 
-
 @media (width >= 769px) {
   .header__theme-menu-list {
     flex-direction: row;
@@ -438,7 +442,7 @@
     inline-size: 230px;
     justify-self: center;
     align-self: flex-start;
-    margin-block-start: 20px;
+    margin-block-start: 0; /*обнулил верхний отступ */
     margin-inline-start: 20px;
   }
 }
@@ -459,21 +463,16 @@
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   }
 
-  .header__title {
-    padding-block-start: 275px;
-  }
-
   .header__epigraph {
     inline-size: 491px;
-    margin-inline-start: 514px;
-    margin-block-start: 112px;
+    align-self: center; /* добавил центрирование */
   }
 
   .content {
     margin-left: 21px;
   }
 
-   .content__text-content-topic-secondary .content__text-content-topic-title { 
+  .content__text-content-topic-secondary .content__text-content-topic-title { 
     inline-size: 315px; 
   } 
  
